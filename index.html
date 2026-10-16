@@ -190,6 +190,7 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            text-decoration: none;
         }
 
         .btn-submit:hover {
@@ -349,7 +350,8 @@
                 <textarea id="jd-text" rows="5" placeholder="ضع نص الوصف الوظيفي هنا للتحليل والمطابقة..."></textarea>
             </div>
 
-            <button class="btn-submit" onclick="startAnalysis()">
+            <!-- زر الدفع المباشر المرتبط بـ Lemon Squeezy -->
+            <button class="btn-submit" onclick="startCheckout()">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <span id="btn-text">بدء التحليل بالمختبر الذكي ($1.99)</span>
             </button>
@@ -402,13 +404,14 @@
             }
         }
 
-        function startAnalysis() {
+        // توجيه العميل المباشر لرابط الدفع
+        function startCheckout() {
             const jd = document.getElementById('jd-text').value;
             if(!jd) {
-                alert("يرجى إدخال الوصف الوظيفي أولاً!");
+                alert("يرجى إدخال الوصف الوظيفي أولاً للبدء!");
                 return;
             }
-            alert("مرحباً بك في AI Resume Lab! جاري تحليل البيانات... اضغط موافق للانتقال لصفحة استلام التقرير ($1.99).");
+            window.location.href = "https://airesumelab.lemonsqueezy.com/checkout/buy/7bda53c9-de80-494b-8e50-3e3897a09098";
         }
 
         function toggleChat() {
